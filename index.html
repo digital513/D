@@ -57,38 +57,72 @@
         .cake-img:hover, .game-img:hover {
             transform: scale(1.05);
         }
+        #cake-drawing {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            border-radius: 10px;
+            position: relative;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        #cake-drawing:before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: yellow;
+            border-radius: 50%;
+        }
+        #spinner {
+            width: 200px;
+            height: 200px;
+            border: 10px solid #ff69b4;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            transition: transform 3s ease;
+        }
+        #pointer {
+            width: 0; 
+            height: 0; 
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid red;
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 20px);
+        }
     </style>
     <script>
-        let cakeClicks = 0;
+        let cakeEaten = false;
+
         function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
 
         function eatCake() {
-            cakeClicks++;
-            const cake = document.getElementById('cake');
-            if (cakeClicks < 5) {
-                cake.style.opacity = 1 - (cakeClicks * 0.2);
-                document.getElementById('cake-msg').innerText = `Yum! Bite ${cakeClicks}, keep going! 🎂`;
-            } else {
-                cake.style.display = 'none';
+            if (!cakeEaten) {
+                document.getElementById('cake-drawing').style.display = 'none';
                 document.getElementById('cake-msg').innerText = 'Cake finished! 🎉';
+                cakeEaten = true;
             }
         }
 
         function cricketHit() {
-            document.getElementById('cricket-msg').innerText = "Dhanno hits a SIX! 🏏";
-        }
-
-        function chooseFood(food) {
-            document.getElementById('food-msg').innerText = `Yum! Dhanno's favorite: ${food} 🍕🍔🥗`;
+            document.getElementById('cricket-msg').innerText = "Yay! It's a SIX! 🏏";
         }
 
         function spinTravel() {
-            const places = ["Paris", "Goa", "Bali", "Japan", "Maldives"];
-            const place = places[Math.floor(Math.random() * places.length)];
-            document.getElementById('travel-msg').innerText = `Next trip: ${place}! ✈️🌍`;
+            const spinner = document.getElementById('spinner');
+            spinner.style.transform = 'rotate(1440deg)'; // 4 full spins
+            setTimeout(() => {
+                document.getElementById('travel-msg').innerText = 'Next trip: Switzerland! 🏔️';
+            }, 3000);
         }
     </script>
 </head>
@@ -131,51 +165,33 @@
         <!-- Page 5: Eat the Cake Game -->
         <div id="page5" class="page hidden">
             <h1>🎂 Cake Time 🎂</h1>
-            <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
+            <div id="cake-drawing" onclick="eatCake()"></div>
             <p id="cake-msg">Click the cake to eat it!</p>
             <button class="button" onclick="showPage('page6')">Next Fun!</button>
         </div>
 
-        <!-- Page 6: Puzzle Challenge -->
+        <!-- Page 6: Cricket Activity -->
         <div id="page6" class="page hidden">
-            <h1>🧩 Fun Puzzle 🧩</h1>
-            <p class="love-note">Which animal is your spirit buddy?</p>
-            <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Cat Spirit Animal" class="hug-img">
-            <p>Your spirit buddy is... 🐱 Cat! Just like you, adorable and sometimes naughty 😺</p>
-            <button class="button" onclick="showPage('page7')">Cricket Time!</button>
-        </div>
-
-        <!-- Page 7: Cricket Activity -->
-        <div id="page7" class="page hidden">
             <h1>🏏 Cricket Fun 🏏</h1>
             <p class="love-note">Click the bat to hit the ball!</p>
             <img src="https://media.giphy.com/media/l0HlQ7LRalO6Xyd8s/giphy.gif" alt="Cricket Bat Ball" class="game-img" onclick="cricketHit()">
             <p id="cricket-msg"></p>
-            <button class="button" onclick="showPage('page8')">Food Choice!</button>
+            <button class="button" onclick="showPage('page7')">Travel Spinner!</button>
         </div>
 
-        <!-- Page 8: Food Activity -->
-        <div id="page8" class="page hidden">
-            <h1>🍕 Food Game 🍕</h1>
-            <p class="love-note">Choose Dhanno's fav food:</p>
-            <button class="button" onclick="chooseFood('Pizza')">Pizza</button>
-            <button class="button" onclick="chooseFood('Burger')">Burger</button>
-            <button class="button" onclick="chooseFood('Salad')">Salad</button>
-            <p id="food-msg"></p>
-            <button class="button" onclick="showPage('page9')">Spin Travel!</button>
-        </div>
-
-        <!-- Page 9: Travel Spinner -->
-        <div id="page9" class="page hidden">
+        <!-- Page 7: Travel Spinner -->
+        <div id="page7" class="page hidden">
             <h1>🌍 Travel Spinner 🌍</h1>
-            <p class="love-note">Spin to see where you're going!</p>
-            <img src="https://media.giphy.com/media/3orieYRBJymHRpBtb6/giphy.gif" alt="Travel Spin" class="game-img" onclick="spinTravel()">
+            <p class="love-note">Click the wheel to spin!</p>
+            <div id="spinner" onclick="spinTravel()">
+                <div id="pointer"></div>
+            </div>
             <p id="travel-msg"></p>
-            <button class="button" onclick="showPage('page10')">Final Surprise!</button>
+            <button class="button" onclick="showPage('page8')">Final Surprise!</button>
         </div>
 
-        <!-- Page 10: Teaser -->
-        <div id="page10" class="page hidden">
+        <!-- Page 8: Teaser -->
+        <div id="page8" class="page hidden">
             <h1>🎁 More Surprises Await 🎁</h1>
             <p class="love-note">This was just the beginning! Big surprise drops on 25th August 💥🎉</p>
             <p class="final-message">Stay tuned, bakwas krte rho ! love you 😘</p>
