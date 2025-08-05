@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Dhanno!</title>
+    <title>Happy Birthday Month Dhanno!</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive;
@@ -28,7 +27,7 @@
             border-radius: 10px;
             cursor: pointer;
             font-size: 1.2em;
-            margin-top: 20px;
+            margin: 20px;
         }
         .photo {
             width: 80%;
@@ -44,11 +43,26 @@
             margin-top: 20px;
             color: #cc0066;
         }
+        .hug-img, .cake-img {
+            width: 250px;
+            margin: 20px;
+        }
+        .cake-img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
     </style>
     <script>
         function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
+        }
+
+        function eatCake() {
+            const cake = document.getElementById('cake');
+            cake.src = 'https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif';
+            cake.alt = 'Cake eaten!';
+            document.getElementById('cake-msg').innerText = 'Yum! You ate the cake, Dhanno! 🎂';
         }
     </script>
 </head>
@@ -56,9 +70,11 @@
     <div class="container">
         <!-- Page 1: Welcome -->
         <div id="page1" class="page">
-            <h1>🎉 Happy Birthday Dhanno! 🎉</h1>
-            <p>Welcome to your surprise-filled birthday adventure!</p>
-            <button class="button" onclick="showPage('page2')">Click to Start!</button>
+            <h1>🎉 It's Dhanno's Birthday Month! 🎉</h1>
+            <p>Surprises are waiting for you... let the countdown begin to 25th August! 🎂</p>
+            <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Balloons" class="hug-img">
+            <p>Click below to unlock your special fun-filled journey!</p>
+            <button class="button" onclick="showPage('page2')">Start the Fun!</button>
         </div>
 
         <!-- Page 2: Photo Gallery -->
@@ -74,15 +90,31 @@
         <!-- Page 3: Love Note -->
         <div id="page3" class="page hidden">
             <h1>💌 Love Note 💌</h1>
-            <p class="love-note">You are my pagal but my most favorite human ever 💖. Now eat your cake like a good boy! 🎂</p>
-            <button class="button" onclick="showPage('page4')">One Last Surprise!</button>
+            <p class="love-note">You are my pagal but my most favorite human ever 💖. Countdown to your birthday is on... and I can't wait to celebrate you! 🥳</p>
+            <button class="button" onclick="showPage('page4')">Virtual Hug!</button>
         </div>
 
         <!-- Page 4: Virtual Hug -->
         <div id="page4" class="page hidden">
             <h1>🤗 Virtual Hug 🤗</h1>
-            <p class="love-note">Sending you the biggest hug ever from me to you, Dhanno! 🧸💕</p>
-            <p class="final-message">You survived all the surprises! Now go enjoy your birthday 🎉🎂</p>
+            <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" alt="Teddy Hug" class="hug-img">
+            <p class="love-note">Here's a warm teddy hug until I can squeeze you in real life! 🧸💕</p>
+            <button class="button" onclick="showPage('page5')">Cake Time!</button>
+        </div>
+
+        <!-- Page 5: Eat the Cake Game -->
+        <div id="page5" class="page hidden">
+            <h1>🎂 Click to Eat Your Cake! 🎂</h1>
+            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
+            <p id="cake-msg">Click the cake above to eat it!</p>
+            <button class="button" onclick="showPage('page6')">More Surprises!</button>
+        </div>
+
+        <!-- Page 6: Teaser for Real Birthday -->
+        <div id="page6" class="page hidden">
+            <h1>🎁 More Surprises Await 🎁</h1>
+            <p class="love-note">This was just the start... wait till 25th August for the BIG SURPRISE! 💥🎉</p>
+            <p class="final-message">Till then, stay cute and don't miss me too much! 😘</p>
         </div>
     </div>
 </body>
