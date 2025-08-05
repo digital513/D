@@ -8,16 +8,28 @@
         body {
             font-family: 'Comic Sans MS', cursive;
             background: linear-gradient(to right, #ffd1dc, #ffe4e1);
-            text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
         .container {
+            width: 100%;
+            max-width: 500px;
             padding: 20px;
+            text-align: center;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             color: #ff1493;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #cc0066;
         }
         .button {
             background-color: #ff69b4;
@@ -27,29 +39,23 @@
             border-radius: 10px;
             cursor: pointer;
             font-size: 1.2em;
-            margin: 20px;
+            margin-top: 20px;
         }
-        .photo {
-            width: 80%;
-            max-width: 300px;
+        .photo, .hug-img, .cake-img {
+            width: 100%;
+            max-width: 350px;
             border-radius: 15px;
-            margin: 10px;
+            margin: 15px 0;
         }
         .hidden {
             display: none;
         }
         .love-note, .final-message {
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin-top: 20px;
-            color: #cc0066;
-        }
-        .hug-img, .cake-img {
-            width: 250px;
-            margin: 20px;
         }
         .cake-img:hover {
-            transform: scale(1.1);
-            cursor: pointer;
+            transform: scale(1.05);
         }
     </style>
     <script>
@@ -60,9 +66,9 @@
 
         function eatCake() {
             const cake = document.getElementById('cake');
-            cake.src = 'https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif';
+            cake.src = 'https://media.giphy.com/media/j2pOGeGYKe2xCCKwfi/giphy.gif'; // Realistic cake eating gif
             cake.alt = 'Cake eaten!';
-            document.getElementById('cake-msg').innerText = 'Yum! You ate the cake, Dhanno! 🎂';
+            document.getElementById('cake-msg').innerText = 'Yum! Cake eaten, Dhanno! 🎂';
         }
     </script>
 </head>
@@ -70,10 +76,10 @@
     <div class="container">
         <!-- Page 1: Welcome -->
         <div id="page1" class="page">
-            <h1>🎉 It's Dhanno's Birthday Month! 🎉</h1>
-            <p>Surprises are waiting for you... let the countdown begin to 25th August! 🎂</p>
+            <h1>🎉 Happy Birthday Month Dhanno! 🎉</h1>
+            <p>Welcome to your birthday adventure countdown! 🎂</p>
             <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Balloons" class="hug-img">
-            <p>Click below to unlock your special fun-filled journey!</p>
+            <p>Click below to begin your fun-filled journey!</p>
             <button class="button" onclick="showPage('page2')">Start the Fun!</button>
         </div>
 
@@ -90,31 +96,40 @@
         <!-- Page 3: Love Note -->
         <div id="page3" class="page hidden">
             <h1>💌 Love Note 💌</h1>
-            <p class="love-note">You are my pagal but my most favorite human ever 💖. Countdown to your birthday is on... and I can't wait to celebrate you! 🥳</p>
+            <p class="love-note">You are my pagal but my most favorite human ever 💖. Countdown to 25th August is on!</p>
             <button class="button" onclick="showPage('page4')">Virtual Hug!</button>
         </div>
 
         <!-- Page 4: Virtual Hug -->
         <div id="page4" class="page hidden">
             <h1>🤗 Virtual Hug 🤗</h1>
-            <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" alt="Teddy Hug" class="hug-img">
-            <p class="love-note">Here's a warm teddy hug until I can squeeze you in real life! 🧸💕</p>
-            <button class="button" onclick="showPage('page5')">Cake Time!</button>
+            <img src="https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif" alt="Two Cats Hugging" class="hug-img">
+            <p class="love-note">Two cats hugged... now it's your turn for a real hug soon! 🐱💕</p>
+            <button class="button" onclick="showPage('page5')">Cake Game!</button>
         </div>
 
         <!-- Page 5: Eat the Cake Game -->
         <div id="page5" class="page hidden">
-            <h1>🎂 Click to Eat Your Cake! 🎂</h1>
-            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
-            <p id="cake-msg">Click the cake above to eat it!</p>
-            <button class="button" onclick="showPage('page6')">More Surprises!</button>
+            <h1>🎂 Cake Time 🎂</h1>
+            <img src="https://media.giphy.com/media/26xBIygOcC3bAWg3C/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
+            <p id="cake-msg">Click the cake to eat it!</p>
+            <button class="button" onclick="showPage('page6')">Next Fun!</button>
         </div>
 
-        <!-- Page 6: Teaser for Real Birthday -->
+        <!-- Page 6: Puzzle Challenge -->
         <div id="page6" class="page hidden">
+            <h1>🧩 Fun Puzzle 🧩</h1>
+            <p class="love-note">Which animal is your spirit buddy?</p>
+            <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" alt="Cat Thinking" class="hug-img">
+            <p>Options: 🐱 Cat | 🐼 Panda | 🐒 Monkey</p>
+            <button class="button" onclick="showPage('page7')">Reveal Answer!</button>
+        </div>
+
+        <!-- Page 7: Teaser -->
+        <div id="page7" class="page hidden">
             <h1>🎁 More Surprises Await 🎁</h1>
-            <p class="love-note">This was just the start... wait till 25th August for the BIG SURPRISE! 💥🎉</p>
-            <p class="final-message">Till then, stay cute and don't miss me too much! 😘</p>
+            <p class="love-note">This was just the beginning! Big surprise drops on 25th August 💥🎉</p>
+            <p class="final-message">Stay tuned, my favorite pagal human! 😘</p>
         </div>
     </div>
 </body>
