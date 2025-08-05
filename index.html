@@ -18,40 +18,40 @@
         }
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 100%;
             padding: 20px;
             text-align: center;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 6vw;
             color: #ff1493;
             margin-bottom: 10px;
         }
         p {
-            font-size: 1.2em;
+            font-size: 4.5vw;
             color: #cc0066;
         }
         .button {
             background-color: #ff69b4;
             color: white;
-            padding: 10px 20px;
+            padding: 3vw 5vw;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 1.2em;
+            font-size: 4vw;
             margin-top: 20px;
         }
         .photo, .hug-img, .cake-img {
-            width: 100%;
-            max-width: 350px;
+            width: 90%;
+            max-width: 500px;
             border-radius: 15px;
-            margin: 15px 0;
+            margin: 20px 0;
         }
         .hidden {
             display: none;
         }
         .love-note, .final-message {
-            font-size: 1.4em;
+            font-size: 4.5vw;
             margin-top: 20px;
         }
         .cake-img:hover {
@@ -66,7 +66,7 @@
 
         function eatCake() {
             const cake = document.getElementById('cake');
-            cake.src = 'https://media.giphy.com/media/j2pOGeGYKe2xCCKwfi/giphy.gif'; // Realistic cake eating gif
+            cake.src = 'https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif'; // CakeEating1 gif
             cake.alt = 'Cake eaten!';
             document.getElementById('cake-msg').innerText = 'Yum! Cake eaten, Dhanno! 🎂';
         }
@@ -103,7 +103,7 @@
         <!-- Page 4: Virtual Hug -->
         <div id="page4" class="page hidden">
             <h1>🤗 Virtual Hug 🤗</h1>
-            <img src="https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif" alt="Two Cats Hugging" class="hug-img">
+            <img src="https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif" alt="Hug1 Cats" class="hug-img">
             <p class="love-note">Two cats hugged... now it's your turn for a real hug soon! 🐱💕</p>
             <button class="button" onclick="showPage('page5')">Cake Game!</button>
         </div>
@@ -111,7 +111,7 @@
         <!-- Page 5: Eat the Cake Game -->
         <div id="page5" class="page hidden">
             <h1>🎂 Cake Time 🎂</h1>
-            <img src="https://media.giphy.com/media/26xBIygOcC3bAWg3C/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
+            <img src="https://media.giphy.com/media/26Ff66zHfC8s8sR1i/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
             <p id="cake-msg">Click the cake to eat it!</p>
             <button class="button" onclick="showPage('page6')">Next Fun!</button>
         </div>
