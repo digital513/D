@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Happy Birthday Dhanno!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(to right, #ffd1dc, #ffe4e1);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff1493;
+        }
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .photo {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 15px;
+            margin: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .love-note, .final-message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #cc0066;
+        }
+    </style>
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Welcome -->
+        <div id="page1" class="page">
+            <h1>🎉 Happy Birthday Dhanno! 🎉</h1>
+            <p>Welcome to your surprise-filled birthday adventure!</p>
+            <button class="button" onclick="showPage('page2')">Click to Start!</button>
+        </div>
+
+        <!-- Page 2: Photo Gallery -->
+        <div id="page2" class="page hidden">
+            <h1>📸 Funny Moments 📸</h1>
+            <img src="photo1.jpg" class="photo" alt="Dhanno 1">
+            <p>"The King of Swag 😎"</p>
+            <img src="photo2.jpg" class="photo" alt="Dhanno 2">
+            <p>"Lost in nature... or just lost? 😂"</p>
+            <button class="button" onclick="showPage('page3')">Next Surprise!</button>
+        </div>
+
+        <!-- Page 3: Love Note -->
+        <div id="page3" class="page hidden">
+            <h1>💌 Love Note 💌</h1>
+            <p class="love-note">You are my pagal but my most favorite human ever 💖. Now eat your cake like a good boy! 🎂</p>
+            <button class="button" onclick="showPage('page4')">One Last Surprise!</button>
+        </div>
+
+        <!-- Page 4: Virtual Hug -->
+        <div id="page4" class="page hidden">
+            <h1>🤗 Virtual Hug 🤗</h1>
+            <p class="love-note">Sending you the biggest hug ever from me to you, Dhanno! 🧸💕</p>
+            <p class="final-message">You survived all the surprises! Now go enjoy your birthday 🎉🎂</p>
+        </div>
+    </div>
+</body>
+</html>
