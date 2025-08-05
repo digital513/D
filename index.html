@@ -41,7 +41,7 @@
             font-size: 4vw;
             margin-top: 20px;
         }
-        .photo, .hug-img, .cake-img {
+        .photo, .hug-img, .cake-img, .game-img {
             width: 90%;
             max-width: 500px;
             border-radius: 15px;
@@ -54,7 +54,7 @@
             font-size: 4.5vw;
             margin-top: 20px;
         }
-        .cake-img:hover {
+        .cake-img:hover, .game-img:hover {
             transform: scale(1.05);
         }
     </style>
@@ -70,7 +70,7 @@
             const cake = document.getElementById('cake');
             if (cakeClicks < 5) {
                 cake.style.opacity = 1 - (cakeClicks * 0.2);
-                document.getElementById('cake-msg').innerText = `Yum! You took bite ${cakeClicks}, keep going! 🎂`;
+                document.getElementById('cake-msg').innerText = `Yum! Bite ${cakeClicks}, keep going! 🎂`;
             } else {
                 cake.style.display = 'none';
                 document.getElementById('cake-msg').innerText = 'Cake finished! 🎉';
@@ -131,7 +131,7 @@
         <!-- Page 5: Eat the Cake Game -->
         <div id="page5" class="page hidden">
             <h1>🎂 Cake Time 🎂</h1>
-            <img src="https://media.giphy.com/media/j5oRLVLpZVDt6kQp5c/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
+            <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" class="cake-img" id="cake" onclick="eatCake()" alt="Cake">
             <p id="cake-msg">Click the cake to eat it!</p>
             <button class="button" onclick="showPage('page6')">Next Fun!</button>
         </div>
@@ -148,8 +148,8 @@
         <!-- Page 7: Cricket Activity -->
         <div id="page7" class="page hidden">
             <h1>🏏 Cricket Fun 🏏</h1>
-            <p class="love-note">Click to hit a ball!</p>
-            <img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif" alt="Cricket Hit" class="hug-img" onclick="cricketHit()">
+            <p class="love-note">Click the bat to hit the ball!</p>
+            <img src="https://media.giphy.com/media/l0HlQ7LRalO6Xyd8s/giphy.gif" alt="Cricket Bat Ball" class="game-img" onclick="cricketHit()">
             <p id="cricket-msg"></p>
             <button class="button" onclick="showPage('page8')">Food Choice!</button>
         </div>
@@ -169,7 +169,7 @@
         <div id="page9" class="page hidden">
             <h1>🌍 Travel Spinner 🌍</h1>
             <p class="love-note">Spin to see where you're going!</p>
-            <img src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" alt="Travel Spin" class="hug-img" onclick="spinTravel()">
+            <img src="https://media.giphy.com/media/3orieYRBJymHRpBtb6/giphy.gif" alt="Travel Spin" class="game-img" onclick="spinTravel()">
             <p id="travel-msg"></p>
             <button class="button" onclick="showPage('page10')">Final Surprise!</button>
         </div>
